@@ -56,7 +56,7 @@
 .search {
   border: 1px solid #ccc;
   border-radius: 4px;
-  width: 20%;
+  width: 115px;
 }
 
 .search-label {
