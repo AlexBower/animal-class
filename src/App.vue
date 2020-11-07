@@ -62,19 +62,19 @@ body {
 }
 
 .menu-item button {
-  padding: 5px 15px;
+  padding: 5px 10px;
   background-color: #8dc090;
-  border-radius: 4px;
+  border-radius: 3px;
   border: solid black;
 }
 
 .menu-buffer {
-  margin-left: 20px;
-  margin-right: 20px;
+  margin-left: 15px;
+  margin-right: 15px;
 }
 
 #menu a {
-  font-size: 30px;
+  font-size: 25px;
   color: black;
   text-decoration: none;
 }

@@ -41,7 +41,7 @@
 .search {
   border: 1px solid #ccc;
   border-radius: 4px;
-  width: 50%;
+  width: 340px;
 }
 
 form {
