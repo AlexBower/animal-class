@@ -2,6 +2,13 @@
 <div>
   <div class="wrapper">
     <div class="search-area">
+      <div style="padding-bottom: 10px;">Order by:</div>
+      <div class="pure-menu pure-menu-horizontal" style="width: fit-content; padding-bottom: 10px">
+        <ul class="pure-menu-list">
+          <li class="pure-menu-item"><a @click="select('decrease')" href="#" class="pure-menu-link">Decreasing GPA</a></li>
+          <li class="pure-menu-item"><a @click="select('increase')" href="#" class="pure-menu-link">Increasing GPA</a></li>
+        </ul>
+      </div>
       <div style="padding-bottom: 10px;"> Search for student by gpa</div>
       <div class="search-boxes">
         <div class="search-label">low:</div>
@@ -95,13 +102,24 @@ export default {
     return {
       low: 2,
       high: 4,
+      sortBy: 'decrease',
     }
   },
   computed: {
     students() {
-      return this.$root.$data.students
-        .filter(student => student.gpa >= this.low && student.gpa <= this.high)
-        .sort((a, b) => (a.gpa < b.gpa) ? 1 : -1);
+      let filtered = this.$root.$data.students
+        .filter(student => student.gpa >= this.low && student.gpa <= this.high);
+      if (this.sortBy === "decrease") {
+        return filtered.sort((a, b) => (a.gpa < b.gpa) ? 1 : -1);
+      }
+      else {
+        return filtered.sort((a, b) => (a.gpa > b.gpa) ? 1 : -1);
+      }
+    }
+  },
+  methods: {
+    select(sortBy) {
+      this.sortBy = sortBy;
     }
   }
 }

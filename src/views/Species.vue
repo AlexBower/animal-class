@@ -2,14 +2,7 @@
 <div>
   <div class="wrapper">
     <div class="search-area">
-      <div style="padding-bottom: 10px;">Order by:</div>
-      <div class="pure-menu pure-menu-horizontal" style="width: fit-content; padding-bottom: 10px">
-        <ul class="pure-menu-list">
-          <li class="pure-menu-item"><a @click="select('firstName')" href="#" class="pure-menu-link">First Name</a></li>
-          <li class="pure-menu-item"><a @click="select('lastName')" href="#" class="pure-menu-link">Last Name</a></li>
-        </ul>
-      </div>
-      <div style="padding-bottom: 10px;">Search for student by name:</div>
+      <div style="padding-bottom: 10px;">Search for student by species:</div>
       <div class="search">
         <form class="pure-form">
           <i class="fas fa-search"></i><input v-model="searchText" />
@@ -68,26 +61,20 @@ input {
 <script>
 import StudentList from "../components/StudentList.vue"
 export default {
-  name: 'Home',
+  name: 'Species',
   components: {
     StudentList
   },
     data() {
     return {
       searchText: '',
-      sortBy: 'firstName',
     }
   },
   computed: {
     students() {
       return this.$root.$data.students
-        .filter(student => (student.firstName + " " + student.lastName).toLowerCase().search(this.searchText.toLowerCase()) >= 0)
-        .sort((a, b) => (a[this.sortBy] > b[this.sortBy]) ? 1 : -1);
-    }
-  },
-  methods: {
-    select(sortBy) {
-      this.sortBy = sortBy;
+        .filter(student => student.species.toLowerCase().search(this.searchText.toLowerCase()) >= 0)
+        .sort((a, b) => (a.species > b.species) ? 1 : -1);
     }
   }
 }

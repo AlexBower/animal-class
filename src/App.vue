@@ -25,6 +25,12 @@
     </div>
   </div>
   <router-view />
+  <footer>
+    <a href="https://github.com/AlexBower/cp3-animal-class" target="_blank">
+    Link to Github Repository
+    </a>
+  </footer>
+
 </div>
 </template>
 
@@ -73,4 +79,14 @@ body {
   text-decoration: none;
 }
 
+footer {
+  padding-top: 50px;
+  width: 100%;
+  display: flex;
+}
+
+footer a {
+  text-align: center;
+  width: inherit;
+}
 </style>
