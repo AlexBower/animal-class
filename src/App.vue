@@ -1,32 +1,76 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+<div id="app">
+  <div id="menu">
+    <div id="title">
+      <H1>Animal Class</H1>
     </div>
-    <router-view/>
+    <div id="nav">
+      <div class="menu-item">
+        <router-link to="/">
+          <button>Name</button>
+        </router-link>
+      </div>
+      <div class="menu-buffer"></div>
+      <div class="menu-item">
+        <router-link to="/gpa">
+          <button>GPA</button>
+        </router-link>
+      </div>
+      <div class="menu-buffer"></div>
+      <div class="menu-item">
+        <router-link to="/species">
+          <button>Species</button>
+        </router-link>
+      </div>
+    </div>
   </div>
+  <router-view />
+</div>
 </template>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 50px 100px;
+}
+
+#menu {
+  margin-bottom: 50px;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+}
+
+#title {
+  display: flex;
+  justify-content: center;
 }
 
 #nav {
-  padding: 30px;
+  display: flex;
+  justify-content: center;
 }
 
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
+.menu-item button {
+  padding: 5px 15px;
+  background-color: #8dc090;
+  border-radius: 4px;
+  border: solid black;
 }
 
-#nav a.router-link-exact-active {
-  color: #42b983;
+.menu-buffer {
+  margin-left: 20px;
+  margin-right: 20px;
 }
+
+#menu a {
+  font-size: 30px;
+  color: black;
+  text-decoration: none;
+}
+
 </style>
